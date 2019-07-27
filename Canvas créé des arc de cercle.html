@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>élément canvas</title>
+        <meta charset='utf-8'>
+        <style>
+            body{
+                margin: 0px;
+                padding: 0px;
+            }
+            #canvas1{
+                border: 2px solid orange;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id='canvas1' width='400' height='200'></canvas>
+        
+        <script>
+            var canvas = document.getElementById('canvas1');
+            var contexte = canvas.getContext('2d');
+            
+            contexte.beginPath();
+            contexte.lineWidth = '5';
+            contexte.strokeStyle = '#4c8';
+            contexte.arc(75, 100,50, 0, Math.PI);
+            contexte.stroke();
+            
+            contexte.beginPath();
+            contexte.lineWidth = '5';
+            contexte.fillStyle = '#a4a';
+            contexte.arc(200, 100,50, 0, 2*Math.PI);
+            contexte.fill();
+            
+            contexte.beginPath();
+            contexte.lineWidth = '5';
+            contexte.strokeStyle = '#48c';
+            contexte.arc(325, 100, 50, Math.PI, 2*Math.PI);
+            contexte.stroke();
+     
+        </script>
+    </body>
+</html>
