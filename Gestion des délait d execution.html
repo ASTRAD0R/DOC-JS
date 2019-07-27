@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>élément canvas</title>
+        <meta charset='utf-8'>
+        
+    </head>
+    <body>
+        <p>Horloge actualiser en direct ! il est <span id ='temp'></span></p>
+        <button id = 'stop'>Arréter le temp</button>
+        
+        <br>
+        <br>
+        
+        <button id='btn'>Cliquez</button>
+        
+        <script>
+           var heure = document.getElementById('temp');
+           var tempsReal = setInterval(horloge,1000);
+           var stop = document.getElementById('stop');
+           
+           function horloge(){
+            var d = new Date();
+            heure.innerHTML = d.toLocaleTimeString(); //on optien l'heur de mon feseseau horaire
+           }
+           
+           stop.addEventListener('click', arret); //stop l'excution de la methode tolocaleTimeString
+           function arret(){
+            clearInterval(tempsReal);
+           }
+           
+           var body = document.body;
+           var btn = document.getElementById('btn');
+           
+           btn.addEventListener('click', couleur);
+           
+           function couleur(){
+            setTimeout((function(){body.style.BackgroundColor = '#3b4'}),200); //change la couleur de font apres 200 mm seconde
+            setTimeout((function(){body.style.BackgroundColor = '#4b4'}),600);
+            setTimeout((function(){body.style.BackgroundColor = '#8b4'}),400);
+            setTimeout((function(){body.style.BackgroundColor = '#354'}),1100);
+            setTimeout((function(){body.style.BackgroundColor = '#334'}),400);
+            setTimeout((function(){body.style.BackgroundColor = '#366'}),200);
+            setTimeout((function(){body.style.BackgroundColor = '#310'}),2100);
+           }
+           
+        </script>
+    </body>
+</html>

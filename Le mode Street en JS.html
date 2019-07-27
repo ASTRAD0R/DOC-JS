@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>élément canvas</title>
+        <meta charset='utf-8'>
+    </head>
+    <body>
+        <p id ="varX"></p>
+        <p id ="varY"></p>
+        <script>
+            'use strict';
+            var afficheX = document.getElementById('varX');
+            var afficheY = document.getElementById('varY');
+            
+            var x = 5;
+            y = 10; //erreur afecter par le monde strict en globale 
+            
+            afficheX.innerHTML = x;
+            afficheY.innerHTML = y;
+            
+            function affx{
+                'use strict'; // mode strict en local 
+                var x = 5;
+                alert(x);
+            }
+             function affy{
+                'use strict';
+                var y = 5;
+                alert(y);
+            }
+            
+            affx();
+            affy();
+        </script>
+    </body>
+</html>

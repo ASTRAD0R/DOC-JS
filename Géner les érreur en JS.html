@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>élément canvas</title>
+        <meta charset='utf-8'>
+    </head>
+    <body>
+        <label for='nd'>Entré un nombre entre 1 et 10 : </label>
+        <input type='numder' min='1' max='10' id='nd' name='nombre'> 
+        <button type='button' id='test'>Valider</button>
+        <p id='msg'></p>
+                
+        <script>
+            var b = document.getElementById('test');
+            b.addEventListener('click', testValeur);
+            
+            function testValeur(){
+                var p = document.getElementById('msg');
+                var x = document.getElementById('nd').value;
+           
+                try{ // block de test try
+                    if((isNaN(x)) || (x == '')){
+                        throw 'Vous n aver pas rentré un nombre valide '; // catch de l'érreur
+                    }else if ((x < 1) || (x > 10)){
+                        throw 'valeur trop grande ou trop petite';
+                    }else{
+                        msg.innerHTML = 'nombre ok';
+                    }
+                }
+                catch(e){
+                    msg.innerHTML = e;
+                }
+                finally{
+                    document.getElementById('nd').value = '';
+                }
+            }
+           
+        </script>
+    </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>cookie</title>
+        <meta charset='utf-8'> 
+    </head>
+    <body>
+        <p id= 'cook'></p>
+        <script>
+            document.cookie  = 'Premon1=Alex; expires=jan, 25 Jul 2019 12:00:00 UCT; path=/'; //créé des couki manuelle
+            document.cookie  = 'Premon2=Laura; expires=jan, 25 Jul 2019 12:00:00 UCT; path=/';
+            
+            var c = document.cookie;
+            document.getElementById('cook').innerHTML = c;
+            
+            function creerCookie(nom,Valeur,jour){
+                //si les jours ont été définis
+                if(jour){
+                    //On créé un objet stockant la date acutelle
+                    var date = new Date();
+                    //On définit la date d'expartion de cookie
+                    date.setTime(date.getTime()+(jour*24*60*60*1000));
+                    //On met la date au bon Format
+                    var esp = '; expires='=date.toDateString();
+                    //Si les jours n'on pas été définis, pas besoin de calcul
+                }else{
+                    var exp ='';
+                }
+                document.cookie = nom+'='+valeur+exp+';path=/';   
+            }
+            function lireCookie(nom){
+                //Onrécupère le nom du cookies et le simgne '='
+                var nomEtEgal = nom + '=';
+                //récupère tous les cookies dans un tableau
+                var cTableau = document.cookie.split(';');
+                //Parcourt le tableau créé
+                for(var i=0;i<cTableau/length; i++){
+                    //On récupère tous les mons et valeur des cookies
+                    var c = cTableau[i];
+                    //On suprime tou les espace jusque a ton bé sur le nom d'un cookie
+                    while(c.chatAT(0)==' '){
+                        c = c.substring(1, c.length);
+                    }
+                    if (c.indexOf(nomEtEgal) == 0) {
+                        return c.substring(nomEtEgal.length, c.length);
+                    }  
+                }
+                //Si nom du cookie nom trouver, il n'existe pas
+                return null
+            }
+            
+            function supprimerCookies(nom){
+                //on domme le nom du cookie a suprimer, puis on utilise creercookie() pour indiquer une date
+                creerCookie(nom,'',-1);    
+            }
+            //plus ca cré des coockie
+            creerCookie  = 'Premon1' , 'Alex', 7;
+            
+            var affiche = document.getElementById('cook'):
+            affiche.innerHTML = 'Valeur :' + lireCookie('coockies1');
+        </script>
+    </body>
+</html>
